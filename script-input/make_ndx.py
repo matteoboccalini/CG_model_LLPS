@@ -6,10 +6,10 @@
 #        python3 make_ndx.py <file.gro>
 #
 #
-#  07.03.2023: modified for new topology
-#  28.03.2023: added lines for single chain index
-#              + modified gro input file (now argparse)
-#              + fixed output (a bit tidier)
+#M  07.03.2023: modified for new topology
+#D  28.03.2023: added lines for single chain and end-to-end analysis
+#               + modified gro input file (now argparse)
+#               + fixed output (a bit tidier)
 #=====================
 
 import sys
