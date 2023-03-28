@@ -24,7 +24,7 @@ In table are reported the bond interactions of molecule in our model.
 | molecule         | atoms | interaciton type | params  |
 |------------------|-------|------------------|--------------------------------------------------------------------------|
 | polyA            | A - A | Harmonic         | $k_A$ = 1000 $kJ/mol$ $\cdot$ $\frac{1}{nm^{2}}$; $r_{0A}$ = $\sigma_A$          |    
-| B                | Bs-Bc | Harmonic         | $ K_B$ = 1000 $kJ/mol$ $\cdot$ $\frac{1}{nm^{2}} $; $r_{0B}$ = $\frac{\sigma_{Bs}}{2}$ + $\frac{\sigma_{Bc}}{2}$  |
+| B                | Bs-Bc | Harmonic         | $K_B$ = 1000 $kJ/mol$ $\cdot$ $\frac{1}{nm^{2}} $; $r_{0B}$ = $\frac{\sigma_{Bs}}{2}$ + $\frac{\sigma_{Bc}}{2}$  |
 
 In table are reported all possible non-bonded interaction and the type of function used to described it.
 
@@ -385,18 +385,16 @@ def force_LJ_like(r,sigma,epsilon,lambd):
 # for simplicity split 2 terms. One depending on lambda.
 
 def LJ_like_4_table_1(r,sigma,epsilon):
-    V_r = (( 4 * epsilon * ((sigma/r)**12 - (sigma/r)**6)) + epsilon ) * (r<= 2**(1/6)*sigma)                                                                                                                
+    V_r = (( 4 * epsilon * ((sigma/r)**12 - (sigma/r)**6)) + epsilon ) * (r<= 2**(1/6)*sigma)                                  
     return V_r
 
 def force_LJ_like_4_table_1(r,sigma,epsilon):
     F_r = 4 * epsilon * ( (12 * (sigma**12) / r**13)  - ( 6 * (sigma**6) / r**7 ) ) * (r<= 2**(1/6)*sigma)  
     return F_r
 
-    
 def LJ_like_4_table_2(r,sigma,epsilon):
     V_r = -epsilon * (r<= 2**(1/6)*sigma)  + 4 * epsilon * ((sigma/r)**12 - (sigma/r)**6) *  (r> 2**(1/6)*sigma)                                                                        
     return V_r
-
 
 def force_LJ_like_4_table_2(r,sigma,epsilon):
     F_r = 4 * epsilon * ( (12 * (sigma**12) / r**13)  - ( 6 * (sigma**6) / r**7 ) ) * (r> 2**(1/6)*sigma)
@@ -470,7 +468,7 @@ For convenience we set to 0 all parametres ($\epsilon$, $V_0$ and $\lambda$) pre
 <table class="tg">
 <thead>
   <tr>
-    <th class="tg-0lax" colspan="10">[nonbond_parmas]</th>
+    <th class="tg-0lax" colspan="10">[nonbond_params]</th>
   </tr>
 </thead>
 <tbody>
