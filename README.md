@@ -24,7 +24,7 @@ In table are reported the bond interactions of molecule in our model.
 | molecule         | atoms | interaciton type | params  |
 |------------------|-------|------------------|--------------------------------------------------------------------------|
 | polyA            | A - A | Harmonic         | $k_A$ = 1000 $kJ/mol$ $\cdot$ $\frac{1}{nm^{2}}$; $r_{0A}$ = $\sigma_A$          |    
-| B                | Bs-Bc | Harmonic         | $K_B$ = 1000 $kJ/mol$ $\cdot$ $\frac{1}{nm^{2}} $; $r_{0B}$ = $\frac{\sigma_{Bs}}{2}$ + $\frac{\sigma_{Bc}}{2}$  |
+| B                | Bs-Bc | Harmonic         | $k_B$ = 1000 $kJ/mol$ $\cdot$ $\frac{1}{nm^{2}} $; $r_{0B}$ = $\frac{\sigma_{Bs}}{2}$ + $\frac{\sigma_{Bc}}{2}$  |
 
 In table are reported all possible non-bonded interaction and the type of function used to described it.
 
@@ -83,7 +83,7 @@ if $r \ge 2^{\frac{1}{6}} \sigma$
 
 
 
-Using Gromacs to run CG model simulations, we cannot express interactions through analytic functions but we have to use numerical values with tables. We decided to provide 3 tables; each referring to a specific $ \sigma $ value.
+Using Gromacs to run CG model simulations, we cannot express interactions through analytic functions but we have to use numerical values with tables. We decided to provide 3 tables; each referring to a specific $\sigma$ value.
 
 <table class="tg">
 <thead>
@@ -182,8 +182,8 @@ Here is possible to see how the tables are designed.
   </tr>
   <tr>
     <td class="tg-0lax"> $\mathrm{r_{cutoff} + 1}$<br></td>
-    <td class="tg-0lax">$ 0.00 $</td>
-    <td class="tg-0lax">$ 0.00 $</td>
+    <td class="tg-0lax">0.00</td>
+    <td class="tg-0lax">0.00</td>
     <td class="tg-0lax">$\vdots$</td>
     <td class="tg-0lax">$\vdots$</td>
     <td class="tg-0lax">$\vdots$</td>
@@ -235,8 +235,8 @@ $$
     <td class="tg-0lax">0.00</td>
     <td class="tg-0lax">$\vdots$</td>
     <td class="tg-0lax">$\vdots$</td>
-    <td class="tg-0lax">$0.00$</td>
-    <td class="tg-0lax">$0.00$</td>
+    <td class="tg-0lax">0.00</td>
+    <td class="tg-0lax">0.00</td>
   </tr>
   <tr>
     <td class="tg-0lax">0.02</td>
@@ -244,8 +244,8 @@ $$
     <td class="tg-0lax">0.00</td>
     <td class="tg-0lax">$\mathrm{LJ_T^{2 \sigma}}$</td>
     <td class="tg-0lax">$\mathrm{- \nabla {LJ_T^{2 \sigma}}}$</td>
-    <td class="tg-0lax">$0.00$</td>
-    <td class="tg-0lax">$0.00$</td>
+    <td class="tg-0lax">0.00</td>
+    <td class="tg-0lax">0.00</td>
   </tr>
   <tr>
     <td class="tg-0lax"> $\vdots$<br></td>
@@ -258,12 +258,12 @@ $$
   </tr>
   <tr>
     <td class="tg-0lax"> $\mathrm{r_{cutoff}+1}$<br></td>
-    <td class="tg-0lax">$ 0.00 $</td>
-    <td class="tg-0lax">$ 0.00 $</td>
+    <td class="tg-0lax">0.00</td>
+    <td class="tg-0lax">0.00</td>
     <td class="tg-0lax">$\vdots$</td>
     <td class="tg-0lax">$\vdots$</td>
-    <td class="tg-0lax">$0.00$</td>
-    <td class="tg-0lax">$0.00$</td>
+    <td class="tg-0lax">0.00</td>
+    <td class="tg-0lax">0.00</td>
   </tr>
 </tbody>
 </table>
@@ -324,8 +324,8 @@ $$ \mathrm{ - \nabla LJ_T^{2\sigma} = 4  \epsilon \cdot \left(-12 \cdot \frac{(2
   </tr>
   <tr>
     <td class="tg-0lax"> $\mathrm{r_{cutoff} + 1}$<br></td>
-    <td class="tg-0lax">$ 0.00 $</td>
-    <td class="tg-0lax">$ 0.00 $</td>
+    <td class="tg-0lax">0.00</td>
+    <td class="tg-0lax">0.00</td>
     <td class="tg-0lax">$\vdots$</td>
     <td class="tg-0lax">$\vdots$</td>
     <td class="tg-0lax">$\vdots$</td>
@@ -429,12 +429,12 @@ ax[0,1].set_ylabel(' F ')
 ax[1,0].set_xlim(0,3)
 ax[1,0].plot(x,Wingreen(x, V_0=1, r_0=1))
 ax[1,0].set_title('Wingreen (V)')
-ax[1,0].set_xlabel('$ \sigma$ ')
+ax[1,0].set_xlabel('$\sigma$ ')
 ax[1,0].set_ylabel(' V ')
 
 ax[1,1].plot(x,force_Wingreen(x, V_0=1, r_0=1), color='r')
 ax[1,1].set_title('Wingreen (F)')
-ax[1,1].set_xlabel('$ \sigma$ ')
+ax[1,1].set_xlabel('$\sigma$ ')
 ax[1,1].set_ylabel(' F ')
 
 ax[2,0].set_xlim(0,3)
@@ -443,7 +443,7 @@ ax[2,0].plot(x,LJ_like(x, sigma=1,epsilon=2, lambd=1),'.-.' , color='C0', label=
 ax[2,0].plot(x,LJ_like(x, sigma=1, epsilon=2, lambd=0.1), '-', color='C0',label='lambda = 0.1')
 ax[2,0].set_ylim(-5,5)
 ax[2,0].set_title(' LJ like (V)')
-ax[2,0].set_xlabel('$ \sigma$ ')
+ax[2,0].set_xlabel('$\sigma$ ')
 ax[2,0].set_ylabel(' V ')
 ax[2,0].legend()
 
@@ -452,7 +452,7 @@ ax[2,1].plot(x,force_LJ_like(x,sigma=1,epsilon=2, lambd=1),'.-.' , color='r', la
 ax[2,1].plot(x,force_LJ_like(x,sigma=1,epsilon=2, lambd=0.1), '-', color='r',label='lambda = 0.1')
 ax[2,1].set_ylim(-5,5)
 ax[2,1].set_title(' LJ like (F)')
-ax[2,1].set_xlabel('$ \sigma$ ')
+ax[2,1].set_xlabel('$\sigma$ ')
 ax[2,1].set_ylabel(' F ')
 ax[2,1].legend();
 
