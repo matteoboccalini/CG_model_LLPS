@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ./analysis.sh number_of_A_chain lambda energy_scaling temp
+# ./analysis.sh number_of_A_chain
 
 gmx=/MASTER/PROG/gromacs-2019.6-gpu/bin/gmx
 
