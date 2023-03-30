@@ -95,7 +95,7 @@ with open("index.ndx",'w') as f:
     
     for n in range(1, num_A + 1):
         f.write('[ EE%s ]\n' %(n))
-        f.write('{:>5} {:>5}\n'.format(length_A * (n-1) + 1, length_A * n))
+        f.write('{:>5}{:>5}\n'.format(length_A * (n-1) + 1, length_A * n))
 
 
 
