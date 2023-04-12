@@ -71,6 +71,10 @@ do
 done
 
 # optional variable
-# nbins=
+# nbins=                # default=50
+# nb=                   # default=2000
+# sideX=                # default=50
+# sideY=                # defualt=50
+# sideZ =               # defualt=500
 
-python make_hist_totconc.py -temp ${temp} # -nbins ${nbins}
+python make_hist_totconc.py -temp ${temp} # -nb ${nb} # -side ${sideX} ${sideY} ${sideZ} # -nbins ${nbins}
