@@ -15,7 +15,7 @@ In table are reported the molecules present in our model and the relative sequen
 
 | Molecule | Sequence |
 |----------|----------|
-| poiyA    | A- $\cdots$ - A (n $\cdot$ A)
+| polyA    | A- $\cdots$ - A (n $\cdot$ A)
 | B        | Bs - Bc | 
 
 In table are reported the bond interactions of molecule in our model.
