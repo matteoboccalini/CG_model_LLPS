@@ -30,11 +30,11 @@ In table are reported all possible non-bonded interaction and the type of functi
 
 | atoms    | type  |
 |----------|------|
-| A -A     | Lennard - Jones Troncated   |
+| A -A     | Lennard - Jones Truncated   |
 | A - Bs   | Wingreen    |
-| A - Bc   | Lennard - Jones Troncated    |
-| Bs - Bs  | Lennard - Jones Troncated   |
-| Bs - Bc  | Lennard - Jones Troncated    |
+| A - Bc   | Lennard - Jones Truncated    |
+| Bs - Bs  | Lennard - Jones Truncated   |
+| Bs - Bc  | Lennard - Jones Truncated    |
 | Bc - Bc  | Ashbaugh - Hatch    |
 
 Here the explicit analitical expressions of the interactions.
