@@ -43,7 +43,7 @@ cd lambda${lambda}/es${en_scale}/T${temp}
 rm -r dens
 mkdir dens
 
-cp ../../../density-histogram.py .
+cp ../../../make_hist_totconc.py .
 
 echo -e "0\n" | gmx trjconv -f md_slab.xtc -s md_slab.tpr -n ../../../index.ndx -pbc mol -o pbc.xtc
 
