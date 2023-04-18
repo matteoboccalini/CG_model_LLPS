@@ -100,21 +100,23 @@ with open("index.ndx",'w') as f:
         f.write('[ EE%s ]\n' %(n))
         f.write('{:>5}{:>5}\n'.format(length_A * (n-1) + 1, length_A * n))
 
+
     # making index to compute the RDF of A vs A.
     # We have to remove a chain from the ensemble of A: 
     # the index is called AnotX, where X is the excluded A chain
-
+    
+    A_list = index_group['A']
+    
     for n in range(num_A):
-        A_list = index_group["A"]
-        f.write('[ Anot%s]\n' %(n))
-        for l in range(1, length_A+1):
-            A_list.remove(length_A * n + l)
+        A_list_temp = A_list
+        f.write('[ Anot%s]\n' %(n+1))
         counter=0
-        for al in range(len(A_list[r])):
-            f.write('{:>5}'.format(A_list[al]))
-            counter+=1
-            if counter >= 10:
-                f.write("\n")
-                counter=0
+        for al in range(len(A_list)):
+            if (al+1 <= length_A * n) | (al+1 > length_A * (n+1)):
+                f.write('{:>5}'.format(A_list[al]))
+                counter+=1
+                if counter == 10:
+                    f.write("\n")
+                    counter=0
         f.write("\n")
         
