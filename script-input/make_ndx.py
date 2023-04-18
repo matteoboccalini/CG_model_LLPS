@@ -3,22 +3,25 @@
 #====== README =======
 #
 #  help: build index file out of a .gro file.
-#        python3 make_ndx.py <file.gro>
 #
+#  07.03.2023: modified for new topology
 #
-#M  07.03.2023: modified for new topology
-#D  28.03.2023: added lines for single chain and end-to-end analysis
-#               + modified gro input file (now argparse)
-#               + fixed output (a bit tidier)
+#  28.03.2023: added lines for single chain index
+#              + modified gro input file (now argparse)
+#              + fixed output (a bit tidier)
+#
+#  18.04.2023: added lines for g(r), AnotX, that includes
+#              all A beads not owing to polymer X
 #=====================
+
+
+# EXAMPLE for GROfile with N PolyA of length L
+# ./make_ndx.py -gro GROfile -n N -l L
 
 import sys
 import numpy as np
 import argparse
 
-
-# EXAMPLE for GROfile with N PolyA of length L
-# ./make_ndx.py -gro GROfile -n N -l L
 
 
 parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter, epilog=" ")
@@ -92,15 +95,26 @@ with open("index.ndx",'w') as f:
 
     # making index to compute end-to-end distances
     # for each polyA chain with pairdist
-    
+
     for n in range(1, num_A + 1):
         f.write('[ EE%s ]\n' %(n))
         f.write('{:>5}{:>5}\n'.format(length_A * (n-1) + 1, length_A * n))
 
+    # making index to compute the RDF of A vs A.
+    # We have to remove a chain from the ensemble of A: 
+    # the index is called AnotX, where X is the excluded A chain
 
-
-
-
-
-
-
+    for n in range(num_A):
+        A_list = index_group["A"]
+        f.write('[ Anot%s]\n' %(n))
+        for l in range(1, length_A+1):
+            A_list.remove(length_A * n + l)
+        counter=0
+        for al in range(len(A_list[r])):
+            f.write('{:>5}'.format(A_list[al]))
+            counter+=1
+            if counter >= 10:
+                f.write("\n")
+                counter=0
+        f.write("\n")
+        
